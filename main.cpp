@@ -67,7 +67,7 @@ void t4(){
         max2=max1;
         max1=a[i];
     }
-//    else if (a[i]>max2) max2=a[i];
+    else if (a[i]>max2) max2=a[i];
     cout << "\nВторой наибольший элемент: "<< max2 << "\n\n";
 }
 
