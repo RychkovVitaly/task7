@@ -53,7 +53,8 @@ void t4(){
     int n, i;
     cout << "\nВведите размер массива: ";
     cin >> n;
-    int a[n];
+    int *a;
+    a = (int*) malloc(n * sizeof(int));
     cout << "\nВведите элементы массива: ";
     for (i=0; i<n; i++) cin >> a[i];
     int max1=a[0],max2=a[1];
@@ -66,6 +67,7 @@ void t4(){
         max2=max1;
         max1=a[i];
     }
+//    else if (a[i]>max2) max2=a[i];
     cout << "\nВторой наибольший элемент: "<< max2 << "\n\n";
 }
 
@@ -103,11 +105,12 @@ void t5(){
 
 //7.6 (сделать функцией)
 int* fusion(int *a, int *b, int n, int m){
-    int *c = new int[n + m];
+    int *c;
+    c = (int*) malloc((n+m) * sizeof(int));
     int i = 0, j = 0;
     int numc = 0;
     while (i < n or j < m) {
-        if (j == m or a[i] < b[j]){
+        if ((j == m or a[i] < b[j]) and i<n){
             c[numc] = a[i];
             i++;
             numc++;
@@ -185,6 +188,7 @@ void t7(){
 
 
 int main(){
+    setlocale(LC_ALL, "Russian");
     int x=1, m;
     while (x>0){
         cout << "Введите номер задачи: ";
